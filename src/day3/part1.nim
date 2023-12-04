@@ -1,4 +1,4 @@
-import std/[os, sequtils, sets, strutils, sugar]
+import std/[enumerate, os, sequtils, sets, strutils, sugar]
 
 
 let questionRoot = currentSourcePath.parentDir
@@ -46,18 +46,11 @@ proc loadSchemaLine(line: string, rowOffset: int, schemaSymbols: var SchemaSymbo
       idx += 1
 
 
-iterator rowLines(f: File): tuple[row: int, line: string] =
-  var row = 0
-  for line in f.lines:
-    yield (row, line)
-    row += 1
-
-
 proc main =
   let infile = open(inputFilepath, fmRead)
   var schemaSymbols: SchemaSymbolSet
   var schemaNums: SchemaNumSeq
-  for row, line in infile.rowLines:
+  for row, line in enumerate(infile.lines):
     line.loadSchemaLine(row, schemaSymbols, schemaNums)
   infile.close()
   let partNumbers = collect:
