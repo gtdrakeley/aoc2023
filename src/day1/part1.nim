@@ -1,9 +1,9 @@
 import std/[os, sequtils, strutils]
 
 
-const questionRoot = currentSourcePath.parentDir
-const inputFilename = "input.txt"
-const inputFilepath = questionRoot.joinPath(inputFilename)
+let questionRoot = currentSourcePath.parentDir
+let inputFilename = "input.txt"
+let inputFilepath = questionRoot.joinPath(inputFilename)
 
 
 proc forwardScan(line: string): char =

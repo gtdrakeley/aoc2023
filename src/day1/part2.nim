@@ -1,9 +1,9 @@
 import std/[os, sequtils, strutils, sugar, tables]
 
 
-const questionRoot = currentSourcePath.parentDir
-const inputFilename = "input.txt"
-const inputFilepath = questionRoot.joinPath(inputFilename)
+let questionRoot = currentSourcePath.parentDir
+let inputFilename = "input.txt"
+let inputFilepath = questionRoot.joinPath(inputFilename)
 const intWordCharTable = toOrderedTable(
   {
     "zero": '0',

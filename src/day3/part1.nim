@@ -1,9 +1,9 @@
 import std/[os, sequtils, sets, strutils, sugar]
 
 
-const questionRoot = currentSourcePath.parentDir
-const inputFilename = "input.txt"
-const inputFilepath = questionRoot.joinPath(inputFilename)
+let questionRoot = currentSourcePath.parentDir
+let inputFilename = "input.txt"
+let inputFilepath = questionRoot.joinPath(inputFilename)
 
 
 type
@@ -12,7 +12,7 @@ type
   SchemaNum = object
     value: string
     loc: SchemaLoc
-  SchemaSymbolSet = OrderedSet[SchemaLoc]
+  SchemaSymbolSet = HashSet[SchemaLoc]
   SchemaNumSeq = seq[SchemaNum]
 
 
